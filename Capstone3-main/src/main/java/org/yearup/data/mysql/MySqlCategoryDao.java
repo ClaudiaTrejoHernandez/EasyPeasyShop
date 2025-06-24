@@ -114,10 +114,7 @@ public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao
     }
 
     @Override
-    public void delete(int categoryId)
-    {
-        // Let op: Dit faalt als er producten zijn met deze category_id vanwege foreign key constraints.
-        // Eerst moeten de gerelateerde producten worden verwijderd of de category_id worden aangepast.
+    public void delete(int categoryId) {
         String sql = "DELETE FROM categories WHERE category_id = ?;";
 
         try (Connection connection = getConnection();

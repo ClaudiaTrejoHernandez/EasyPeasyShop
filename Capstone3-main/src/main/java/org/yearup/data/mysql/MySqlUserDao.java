@@ -36,13 +36,11 @@ public class MySqlUserDao extends MySqlDaoBase implements UserDao
 
             ps.executeUpdate();
 
-            // -- CORRECTIE: Efficiënter ophalen van de nieuwe gebruiker --
-            // Haal de gegenereerde ID op in plaats van een nieuwe SELECT-query uit te voeren.
             try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
                     int userId = generatedKeys.getInt(1);
                     newUser.setId(userId);
-                    newUser.setPassword(""); // Leeg het wachtwoord voor de response
+                    newUser.setPassword("");
                     return newUser;
                 } else {
                     throw new SQLException("Creating user failed, no ID obtained.");
@@ -55,10 +53,6 @@ public class MySqlUserDao extends MySqlDaoBase implements UserDao
         }
     }
 
-    // ... de rest van de klasse (getAll, getUserById, getByUserName, etc.) blijft ongewijzigd,
-    // omdat de gebruikte SQL-syntax al compatibel is met T-SQL.
-
-    // (Plaats hier de ongewijzigde code van de andere methodes)
     @Override
     public List<User> getAll()
     {
