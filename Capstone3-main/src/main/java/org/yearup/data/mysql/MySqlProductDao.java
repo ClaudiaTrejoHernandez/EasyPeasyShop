@@ -19,11 +19,10 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
     }
 
     @Override
-    public List<Product> search(Integer categoryId, BigDecimal minPrice, BigDecimal maxPrice, String color)
-    {
+    public List<Product> search(Integer categoryId, BigDecimal minPrice, BigDecimal maxPrice, String color) {
+
         List<Product> products = new ArrayList<>();
 
-        // -- CORRECTIE: Dynamisch opbouwen van de query voor T-SQL en betere performance --
         StringBuilder sql = new StringBuilder("SELECT * FROM products WHERE 1=1");
         List<Object> params = new ArrayList<>();
 
@@ -47,7 +46,7 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
         try (Connection connection = getConnection();
              PreparedStatement statement = connection.prepareStatement(sql.toString()))
         {
-            // Parameters toevoegen aan de statement
+
             for (int i = 0; i < params.size(); i++) {
                 statement.setObject(i + 1, params.get(i));
             }
@@ -69,10 +68,7 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
         return products;
     }
 
-    // ... de rest van de klasse (listByCategoryId, getById, create, update, delete, mapRow) blijft ongewijzigd,
-    // omdat de gebruikte SQL-syntax al compatibel is met T-SQL.
 
-    // (Plaats hier de ongewijzigde code van de andere methodes)
     @Override
     public List<Product> listByCategoryId(int categoryId)
     {
