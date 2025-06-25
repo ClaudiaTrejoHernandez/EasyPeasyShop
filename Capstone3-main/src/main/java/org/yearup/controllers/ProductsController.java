@@ -19,8 +19,7 @@ public class ProductsController
     private ProductDao productDao;
 
     @Autowired
-    public ProductsController(ProductDao productDao)
-    {
+    public ProductsController(ProductDao productDao) {
         this.productDao = productDao;
     }
 
@@ -81,10 +80,18 @@ public class ProductsController
     {
         try
         {
-            productDao.create(product);
-        }
-        catch(Exception ex)
-        {
+            //Check if product exists
+            var existingProduct = productDao.getById(id);
+            if (existingProduct == null){
+                throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+            }
+            //Make sure product id matches the path variable
+            product.setProductId(id);
+
+            //Update
+            productDao.update(id, product);
+
+        } catch(Exception ex) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
         }
     }
