@@ -1,7 +1,7 @@
 <div align="center">
   <h1>🏪 Welcome to the EasyPeasyShop! 🛒</h1>
 
-  <img src="https://github.com/user-attachments/assets/d52544aa-2bad-45d9-9e14-c82a62965f64" alt="PixelShopArt" width="600"/>
+  <img src="https://github.com/user-attachments/assets/d52544aa-2bad-45d9-9e14-c82a62965f64" alt="PixelShopArt" width="800"/>
 </div>
 
 
@@ -48,24 +48,54 @@ https://github.com/user-attachments/assets/889ee74b-2ced-40b6-bbd7-280f5e20879c
   - **Bug 1:**
     - Users have reported that the product search functionality is returning incorrect 
 results. I tested the search logic to find and fix the bug(s).
+
+<div align="center">
+❌No search results; blank webpage🔎
+</div>
+
+![InitalShopPageFilterBug](https://github.com/user-attachments/assets/57e9ac1f-7474-489a-b13c-5fa0e5289403)
+
+<div align="center">
+✅Functional Webpage🔎
+</div>
+
+![InitialShopPageFilterBug2](https://github.com/user-attachments/assets/e64b30bd-e2e3-4105-97a5-db31d625bb05)
+
+<div align="center">
+✅Functional Filters🔎
+</div>
+
+![InitialShopPageFilterBug3](https://github.com/user-attachments/assets/98069804-4e3a-4c55-889a-b36e370ee6a7)
+
+    
   - **Bug 2:**
     - Some users have also noticed that some of the products seem to be duplicated. 
 For example, a laptop is listed 3 times, and it appears to be the same product, but 
 there are slight differences, such as the description or the price.  
 If you look at the 3 laptops you notice that they are the same product. This laptop 
 has been edited twice, the first time you updated the price, the second update 
-was to the description. It appears that instead of updating the product, each time 
-you tried to update, it added a new product to the database.
-    - I needed to find this bug and fix it so that administrators can safely update 
-products. 
+was to the description.
 
----
-# 🖼️ Images?
+    - It appears that instead of updating the product, each time someone tried to update, it added a new product to the database:
+
+![ProductUpdatePreFix_Laptop](https://github.com/user-attachments/assets/ddb94b4b-14b9-4575-a98a-abb21e5933da)
+   
+  - Hence the 3 "Laptop" items in the store:
+![LaptopPrice851](https://github.com/user-attachments/assets/a58a1064-0745-45f8-b2d0-8de4f0bf07f8)
+    - I fixed this bug so that it now updates properly, and only administrators can safely update products:
+
+![ProductUpdatePostFix_Laptop](https://github.com/user-attachments/assets/2050983e-7627-444b-a627-445badd88f96)
+
+![LaptopPrice850](https://github.com/user-attachments/assets/78014768-2c5c-42b5-a9cf-011fe15cbf7a)
+
 
 
 ---
 
 # 👩‍💻 Interesting Piece of Code
+
+![UsingMockInUnitTesting](https://github.com/user-attachments/assets/43156947-947e-4c9e-9f0c-8e6a3de1ce4f)
+
 
 
 ---
