@@ -36,6 +36,12 @@ The API code I began with was functional, but there were a few bugs in the proje
   - The *MySqlCategoriesDao* also has all necessary functions defined, but you 
 need to write the code to implement the functions.
   - The *Category* model has been defined
+
+
+
+https://github.com/user-attachments/assets/889ee74b-2ced-40b6-bbd7-280f5e20879c
+
+
    
 - ## Phase 2️⃣: Fix Bugs
 **The *ProductsController* endpoint is fully implemented with necessary methods.**
