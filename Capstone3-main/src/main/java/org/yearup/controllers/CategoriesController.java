@@ -16,11 +16,10 @@ import java.util.List;
 
 // add the annotations to make this a REST controller
 @RestController
-
+@CrossOrigin
 // add the annotation to make this controller the endpoint for the following url
     // http://localhost:8080/categories
 @RequestMapping("/categories")
-@CrossOrigin
 public class CategoriesController {
 
     private CategoryDao categoryDao;
@@ -52,19 +51,21 @@ public class CategoriesController {
     @GetMapping("/{categoryId}")
     @PreAuthorize("permitAll()")
     public Category getById(@PathVariable int categoryId) {
+        Category category = null;
 
         // get the category by id
         try {
-            var category = categoryDao.getById(categoryId);
-
-            if (category == null)
-                throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-
-            return category;
+            category = categoryDao.getById(categoryId);
 
         } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,
+                        "Error retrieving category: " + e.getMessage(), e);
         }
+        if (category == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+            return category;
+
     }
 
 // the url to return all products in category 1 would look like this
@@ -125,3 +126,8 @@ public class CategoriesController {
         }
     }
 }
+
+
+
+
+
