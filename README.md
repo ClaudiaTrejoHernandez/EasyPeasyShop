@@ -24,7 +24,28 @@ The API code I began with was functional, but there were a few bugs in the proje
 ---
 
 # ✔️ Phases:
-
+- ## Phase 1️⃣: CategoriesController
+**The *CategoriesController* class has been created, but none of the methods have been implemented yet. I have to implement the code for each function and add the proper annotations in the controller.**
+  - Only administrators (users with the ADMIN role) should be allowed to insert, update or delete a category.
+  - The *MySqlCategoriesDao* also has all necessary functions defined, but you 
+need to write the code to implement the functions.
+  - The *Category* model has been defined
+   
+- ## Phase 2️⃣: Fix Bugs
+**The *ProductsController* endpoint is fully implemented with necessary methods.**
+  - **Bug 1:**
+    - Users have reported that the product search functionality is returning incorrect 
+results. I tested the search logic to find and fix the bug(s).
+  - **Bug 2:**
+    - Some users have also noticed that some of the products seem to be duplicated. 
+For example, a laptop is listed 3 times, and it appears to be the same product, but 
+there are slight differences, such as the description or the price.  
+If you look at the 3 laptops you notice that they are the same product. This laptop 
+has been edited twice, the first time you updated the price, the second update 
+was to the description. It appears that instead of updating the product, each time 
+you tried to update, it added a new product to the database.
+    - I needed to find this bug and fix it so that administrators can safely update 
+products. 
 
 ---
 # 🖼️ Images?
