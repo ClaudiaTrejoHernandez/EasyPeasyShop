@@ -95,7 +95,15 @@ was to the description.
 # 👩‍💻 Interesting Piece of Code
 
 ![UsingMockInUnitTesting](https://github.com/user-attachments/assets/43156947-947e-4c9e-9f0c-8e6a3de1ce4f)
+  - This test checks that when a product search is done by category only, the system returns the correct product. It uses a mock (fake version) of the product database to make sure the controller is working properly. We're essentially asking to not use the real database, and instead use a controllable "fake" database.
+    - 🛠 *Arrange:*
+We create mocks (fake product database) and expected data.
 
+    - ▶️ *Act:*
+We call the controller’s search method with a specific category ID only.
+
+    - ✅ *Assert:*
+We check that the returned product matches what we expected.
 
 
 ---
