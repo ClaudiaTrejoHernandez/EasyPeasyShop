@@ -1,4 +1,10 @@
-# 🏪 Welcome to the EasyPeasyShop! 🛒
+<div align="center">
+  <h1>🏪 Welcome to the EasyPeasyShop! 🛒</h1>
+
+  <img src="https://github.com/user-attachments/assets/d52544aa-2bad-45d9-9e14-c82a62965f64" alt="PixelShopArt" width="600"/>
+</div>
+
+
 
 # 📖 About The Project
 
