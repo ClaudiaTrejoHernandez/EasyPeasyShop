@@ -25,8 +25,7 @@ public class MySqlProfileDao extends MySqlDaoBase implements ProfileDao
 
         try(Connection connection = getConnection())
         {
-            // CORRECTIE: De 'user_id' is de PK, maar wordt niet gegenereerd (het is een FK).
-            // PreparedStatement.RETURN_GENERATED_KEYS is hier dus niet nodig.
+
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, profile.getUserId());
             ps.setString(2, profile.getFirstName());
