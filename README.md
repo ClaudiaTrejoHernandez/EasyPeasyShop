@@ -89,6 +89,11 @@ was to the description.
 ![LaptopPrice850](https://github.com/user-attachments/assets/78014768-2c5c-42b5-a9cf-011fe15cbf7a)
 
 
+---
+# 📋 Postman Tests:
+![PostmanTests1](https://github.com/user-attachments/assets/41737e7c-8c62-4b6e-80a0-b6e8295370b9)
+![PostmanTests2](https://github.com/user-attachments/assets/6f2f9c3f-2f5a-42c1-aabf-0f0ef4ffc028)
+
 
 ---
 
