@@ -28,58 +28,46 @@ public class ProductsController
     public List<Product> search(@RequestParam(name="cat", required = false) Integer categoryId,
                                 @RequestParam(name="minPrice", required = false) BigDecimal minPrice,
                                 @RequestParam(name="maxPrice", required = false) BigDecimal maxPrice,
-                                @RequestParam(name="color", required = false) String color
-                                )
-    {
-        try
-        {
+                                @RequestParam(name="color", required = false) String color) {
+        try {
             return productDao.search(categoryId, minPrice, maxPrice, color);
-        }
-        catch(Exception ex)
-        {
+
+        } catch(Exception ex) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
         }
     }
 
     @GetMapping("{id}")
     @PreAuthorize("permitAll()")
-    public Product getById(@PathVariable int id )
-    {
-        try
-        {
+    public Product getById(@PathVariable int id ) {
+        try {
             var product = productDao.getById(id);
 
             if(product == null)
                 throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 
             return product;
-        }
-        catch(Exception ex)
-        {
+
+        } catch(Exception ex) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
         }
     }
 
     @PostMapping()
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public Product addProduct(@RequestBody Product product)
-    {
-        try
-        {
+    @PreAuthorize("hasRole('ADMIN')")
+    public Product addProduct(@RequestBody Product product) {
+        try {
             return productDao.create(product);
-        }
-        catch(Exception ex)
-        {
+
+        } catch(Exception ex) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
         }
     }
 
     @PutMapping("{id}")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public void updateProduct(@PathVariable int id, @RequestBody Product product)
-    {
-        try
-        {
+    @PreAuthorize("hasRole('ADMIN')")
+    public void updateProduct(@PathVariable int id, @RequestBody Product product) {
+        try {
             //Check if product exists
             var existingProduct = productDao.getById(id);
             if (existingProduct == null){
@@ -97,19 +85,17 @@ public class ProductsController
     }
 
     @DeleteMapping("{id}")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public void deleteProduct(@PathVariable int id)
-    {
-        try
-        {
+    @PreAuthorize("hasRole('ADMIN')")
+    public void deleteProduct(@PathVariable int id) {
+        try {
             var product = productDao.getById(id);
 
             if(product == null)
                 throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 
             productDao.delete(id);
-        }
-        catch(Exception ex)
+
+        } catch(Exception ex)
         {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
         }
